@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+
+{% block css %}
+
+{% endblock css %}
+{% block content %}
+
+<div class="container bg-gradient bg">
+  <hr>+ 
+    <div class="row">
+      <h3 class="text-primary">Add NavbarInfo</h3>
+      <div class="col-12  ">
+        <form action="/admin/profile" method='POST'enctype="multipart/form-data">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="../../static/base/main.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <input type="text" class="form-control my-2" name="navbar_email" placeholder="navbar email" >
+        <input type="text" class="form-control my-2" name="navbar_phone" placeholder="navbar phone ">
+        <input type="submit" class="btn btn-primary btn-lg" value="Add Profile">
+        <hr>
+        </form>
+      </div>
+<hr>
+ <div class="col align-self-center">
+<h3 class="text-warning">Navbar</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-warning" >id</th>
+            <th class="text-warning" >Navbar email</th>
+            <th class="text-warning" >Navbar phone</th>
+            <th class="text-warning" >Actions</th>
+        </tr>
+    </thead>
+    <hr>
+      </div>
+      <div class="col align-self-end">
+  <tbody>
+        {% for navbar in Navbarinfoo %}
+
+        <tr>
+            <td  class="text-primary" scope="row">{{NavbarInfo.id}}</td>
+            <td class="text-primary" >{{NavbarInfo.navbar_email}}</td>
+            <td class="text-primary">{{NavbarInfo.navbar_phone}}</td>
+                <a href="/admin/profiledelete/{{profile.id}}"> <i class="fas fa-trash-alt"></i></a>
+                <a href="/admin/profileupdate/{{profile.id}}"> <i class="fas fa-edit"></i></a>
+            </td>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+       
+</table>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
